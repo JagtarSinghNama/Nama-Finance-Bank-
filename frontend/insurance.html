@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mobile Insurance Apply</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Mobile Insurance Application</h2>
+  <form id="insuranceForm">
+    <input type="text" name="customer_name" placeholder="Full Name" required><br>
+    <input type="text" name="customer_phone" placeholder="Mobile Number" required><br>
+    <input type="email" name="customer_email" placeholder="Email" required><br>
+    <input type="text" name="mobile_brand" placeholder="Mobile Brand" required><br>
+    <input type="text" name="mobile_model" placeholder="Mobile Model" required><br>
+    <input type="text" name="imei_number" placeholder="IMEI Number" required><br>
+    <input type="date" name="purchase_date" required><br>
+    <select name="plan">
+      <option value="6M">6 Months</option>
+      <option value="1Y">1 Year</option>
+      <option value="2Y">2 Years</option>
+    </select><br>
+    <input type="number" name="premium" placeholder="Premium Amount" required><br>
+    <input type="hidden" name="payment_status" value="Pending">
+    <input type="hidden" name="dealer_id" value="D001">
+    <input type="hidden" name="dealer_name" value="Demo Dealer">
+    <button type="submit">Apply</button>
+  </form>
+
+  <script>
+    document.getElementById("insuranceForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = Object.fromEntries(new FormData(e.target).entries());
+
+      const res = await fetch("/api/insurance/apply", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        alert("✅ Insurance Applied Successfully! Application ID: " + data.application_id);
+      } else {
+        alert("❌ Error applying insurance");
+      }
+    });
+  </script>
+</body>
+</html>
