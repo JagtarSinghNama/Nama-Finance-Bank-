@@ -3,61 +3,105 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nama Finance Bank</title>
+  <title>Namma Company Bank</title>
   <style>
     *{margin:0;padding:0;box-sizing:border-box;}
     body{font-family:Arial, sans-serif;line-height:1.6;color:#333;}
-
-    /* Header */
     header{background:#0d6efd;color:#fff;padding:20px;text-align:center;}
-    header h1{font-size:2rem;margin-bottom:5px;}
-    header p{font-size:1rem;}
-
-    /* Navigation */
+    header h1{font-size:2.5rem;}
+    header p{font-size:1.2rem;}
     nav{background:#084298;padding:10px;text-align:center;}
     nav a{color:#fff;text-decoration:none;margin:0 15px;font-weight:bold;}
     nav a:hover{text-decoration:underline;}
-
-    /* Main Section */
-    main{padding:60px 20px;text-align:center;}
-    main h2{margin-bottom:15px;}
-    main p{max-width:700px;margin:auto;font-size:1.1rem;}
-
-    /* Footer */
-    footer{background:#0d6efd;color:#fff;text-align:center;padding:20px;margin-top:40px;}
+    section{padding:60px 20px;text-align:center;}
+    #about{background:#f8f9fa;}
+    #services{background:#fff;}
+    .service-box{display:inline-block;width:250px;margin:15px;padding:20px;
+                 background:#f8f9fa;border-radius:10px;box-shadow:0 4px 6px rgba(0,0,0,0.1);}
+    #portfolio{background:#f8f9fa;}
+    .portfolio-item{display:inline-block;width:280px;margin:15px;border-radius:10px;
+                    overflow:hidden;box-shadow:0 4px 6px rgba(0,0,0,0.1);}
+    .portfolio-item img{width:100%;display:block;}
+    #contact{background:#fff;}
+    form{max-width:500px;margin:auto;text-align:left;}
+    input,textarea{width:100%;padding:12px;margin:8px 0;border:1px solid #ccc;border-radius:6px;}
+    button{background:#0d6efd;color:#fff;padding:12px 20px;border:none;border-radius:6px;cursor:pointer;}
+    button:hover{background:#084298;}
+    footer{background:#0d6efd;color:#fff;text-align:center;padding:20px;margin-top:30px;}
     footer a{color:#fff;margin:0 10px;text-decoration:none;}
     footer a:hover{text-decoration:underline;}
+    /* Responsive */
+    @media(max-width:768px){
+      .service-box,.portfolio-item{width:90%;}
+    }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <header>
-    <h1>Nama Finance Bank</h1>
-    <p>Your Trust, Our Commitment</p>
+    <h1>Namma Company Bank</h1>
+    <p>We Build Your Future with Innovation</p>
   </header>
 
-  <!-- Navigation -->
   <nav>
-    <a href="#">Home</a>
-    <a href="#">Services</a>
-    <a href="#">Policy</a>
-    <a href="#">About</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
   </nav>
 
-  <!-- Main Section -->
-  <main>
-    <h2>Welcome to Nama Finance Bank</h2>
-    <p>
-      We are committed to providing the best financial services with complete transparency 
-      and trust. Our services include mobile insurance, personal loans, car loans, 
-      and home loans. At Nama Finance Bank, customer satisfaction is our top priority.
-    </p>
-  </main>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We are a professional company delivering world-class solutions in technology, finance, and digital growth. Our mission is to help businesses grow with innovation and trust.</p>
+  </section>
 
-  <!-- Footer -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="service-box">
+      <h3>Web Development</h3>
+      <p>Modern and responsive websites for your business.</p>
+    </div>
+    <div class="service-box">
+      <h3>Mobile Apps</h3>
+      <p>High-performance apps for Android & iOS platforms.</p>
+    </div>
+    <div class="service-box">
+      <h3>Finance Solutions</h3>
+      <p>Smart loan & payment management systems.</p>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <h2>Our Projects</h2>
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/280x180" alt="Project 1">
+      <p>Project One</p>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/280x180" alt="Project 2">
+      <p>Project Two</p>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/280x180" alt="Project 3">
+      <p>Project Three</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <label>Your Name</label>
+      <input type="text" placeholder="Enter your name" required>
+      <label>Email</label>
+      <input type="email" placeholder="Enter your email" required>
+      <label>Message</label>
+      <textarea rows="5" placeholder="Write your message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
   <footer>
-    <p>&copy; 2025 Nama Finance Bank | All Rights Reserved</p>
+    <p>&copy; Namma Company | All Rights Reserved</p>
     <p>
       <a href="#">Facebook</a> |
       <a href="#">LinkedIn</a> |
