@@ -1,338 +1,113 @@
-<!doctype html>
-<html lang="hi">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>NAMA FINANCE BANK</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Namma Company</title>
   <style>
-    :root{--accent:#0b6efd;--dark:#0b2545}
-    body{font-family:Inter,Segoe UI,Roboto,system-ui,-apple-system,Arial;margin:0;color:#222}
-    header{background:linear-gradient(90deg,#fff 0%,#f6fbff 100%);box-shadow:0 2px 6px rgba(10,10,10,.06)}
-    .container{max-width:1100px;margin:0 auto;padding:0 18px}
-    .topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{display:flex;flex-direction:column}
-    .brand h1{margin:0;font-size:20px;color:var(--dark);letter-spacing:0.5px}
-    .brand p{margin:2px 0 0;font-size:13px;color:#666}
-    nav ul{display:flex;gap:8px;align-items:center;list-style:none;padding:0;margin:0}
-    nav a{display:block;padding:10px 12px;border-radius:6px;text-decoration:none;color:#0b2545;font-weight:600}
-    nav .dropdown{position:relative}
-    nav .dropdown-content{position:absolute;left:0;top:46px;background:#fff;border:1px solid #eee;box-shadow:0 6px 18px rgba(20,20,40,.08);min-width:220px;border-radius:8px;display:none;z-index:50}
-    nav .dropdown-content a{padding:10px 12px;display:block;color:#222}
-    .cta{display:flex;gap:8px}
-    .btn{background:var(--accent);color:#fff;padding:9px 14px;border-radius:8px;border:none;cursor:pointer}
-    main{padding:28px 0}
-    .hero{display:flex;gap:20px;align-items:center}
-    .card{background:#fff;border:1px solid #eee;padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(10,10,30,.04)}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    label{font-size:13px;color:#333;margin-bottom:6px;display:block}
-    input,select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #ddd}
-    footer{margin-top:36px;padding:22px 0;background:#0b2545;color:#fff}
-    .socials a{color:#fff;text-decoration:none;margin-right:10px}
-    @media(max-width:780px){nav ul{display:none} .topbar{padding:10px} .hero{flex-direction:column} .form-row{grid-template-columns:1fr} }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:Arial, sans-serif;line-height:1.6;color:#333;}
+    header{background:#0d6efd;color:#fff;padding:20px;text-align:center;}
+    header h1{font-size:2.5rem;}
+    header p{font-size:1.2rem;}
+    nav{background:#084298;padding:10px;text-align:center;}
+    nav a{color:#fff;text-decoration:none;margin:0 15px;font-weight:bold;}
+    nav a:hover{text-decoration:underline;}
+    section{padding:60px 20px;text-align:center;}
+    #about{background:#f8f9fa;}
+    #services{background:#fff;}
+    .service-box{display:inline-block;width:250px;margin:15px;padding:20px;
+                 background:#f8f9fa;border-radius:10px;box-shadow:0 4px 6px rgba(0,0,0,0.1);}
+    #portfolio{background:#f8f9fa;}
+    .portfolio-item{display:inline-block;width:280px;margin:15px;border-radius:10px;
+                    overflow:hidden;box-shadow:0 4px 6px rgba(0,0,0,0.1);}
+    .portfolio-item img{width:100%;display:block;}
+    #contact{background:#fff;}
+    form{max-width:500px;margin:auto;text-align:left;}
+    input,textarea{width:100%;padding:12px;margin:8px 0;border:1px solid #ccc;border-radius:6px;}
+    button{background:#0d6efd;color:#fff;padding:12px 20px;border:none;border-radius:6px;cursor:pointer;}
+    button:hover{background:#084298;}
+    footer{background:#0d6efd;color:#fff;text-align:center;padding:20px;margin-top:30px;}
+    footer a{color:#fff;margin:0 10px;text-decoration:none;}
+    footer a:hover{text-decoration:underline;}
+    /* Responsive */
+    @media(max-width:768px){
+      .service-box,.portfolio-item{width:90%;}
+    }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="container">
-      <div class="topbar">
-        <div class="brand">
-          <h1>NAMA FINANCE BANK</h1>
-          <p>Your Trust</p>
-        </div>
-
-        <nav>
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li class="dropdown">
-              <a href="#services" class="dropbtn">Service ▾</a>
-              <div class="dropdown-content">
-                <a href="#mobile-insurance">Mobile Insurance</a>
-                <div class="dropdown">
-                  <a href="#apply-loan">Apply Loan ▸</a>
-                  <div class="dropdown-content">
-                    <a href="#personal-loan">Personal Loan</a>
-                    <a href="#self-loan">Self Loan</a>
-                    <a href="#car-loan">Car Loan</a>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li><a href="#policy">Policy</a></li>
-            <li class="dropdown">
-              <a href="#about">About ▾</a>
-              <div class="dropdown-content">
-                <a href="#mission">Mission</a>
-                <a href="#vision">Vision</a>
-              </div>
-            </li>
-            <li><a href="#more">More</a></li>
-          </ul>
-        </nav>
-
-        <div class="cta">
-          <button class="btn" onclick="scrollToSection('apply-loan')">Apply Loan</button>
-        </div>
-      </div>
-    </div>
+    <h1>Namma Company</h1>
+    <p>We Build Your Future with Innovation</p>
   </header>
 
-  <main class="container">
-    <section id="home" class="hero">
-      <div style="flex:1">
-        <div class="card">
-          <h2>Welcome to Nama Finance Bank</h2>
-          <p>Apki financial zarooraton ke liye trusted partner. Hamari services dekhne ke liye navigation use karein.</p>
-        </div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-        <div style="margin-top:12px;display:flex;gap:8px">
-          <div class="card" style="flex:1">Quick Links
-            <ul>
-              <li>Mobile Insurance</li>
-              <li>Apply Loan</li>
-              <li>Support</li>
-            </ul>
-          </div>
-          <div class="card" style="width:260px">Contact
-            <p>Email: support@namafinance.example</p>
-            <p>Phone: +91 90000 00000</p>
-          </div>
-        </div>
-      </div>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We are a professional company delivering world-class solutions in technology, finance, and digital growth. Our mission is to help businesses grow with innovation and trust.</p>
+  </section>
 
-      <aside style="width:420px">
-        <div class="card">
-          <h3>Apply — Quick Form</h3>
-          <form id="quickApplyForm">
-            <div class="form-row">
-              <div>
-                <label for="qname">Name</label>
-                <input id="qname" name="name" required />
-              </div>
-              <div>
-                <label for="qphone">Phone</label>
-                <input id="qphone" name="phone" required />
-              </div>
-            </div>
-            <div style="margin-top:8px">
-              <label for="qservice">Service</label>
-              <select id="qservice" name="service">
-                <option>Personal Loan</option>
-                <option>Self Loan</option>
-                <option>Car Loan</option>
-                <option>Mobile Insurance</option>
-              </select>
-            </div>
-            <div style="margin-top:8px;display:flex;gap:8px;justify-content:flex-end">
-              <button type="submit" class="btn">Send</button>
-            </div>
-          </form>
-          <p id="quickStatus" style="font-size:13px;color:#666;margin-top:8px"></p>
-        </div>
-      </aside>
-    </section>
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="service-box">
+      <h3>Web Development</h3>
+      <p>Modern and responsive websites for your business.</p>
+    </div>
+    <div class="service-box">
+      <h3>Mobile Apps</h3>
+      <p>High-performance apps for Android & iOS platforms.</p>
+    </div>
+    <div class="service-box">
+      <h3>Finance Solutions</h3>
+      <p>Smart loan & payment management systems.</p>
+    </div>
+  </section>
 
-    <!-- Mobile Insurance Section -->
-    <section id="mobile-insurance" style="margin-top:20px">
-      <h3>Mobile Insurance — Apply</h3>
-      <div class="card">
-        <form id="mobileInsuranceForm">
-          <div class="form-row">
-            <div>
-              <label for="custName">Customer Name</label>
-              <input id="custName" name="customer_name" required />
-            </div>
-            <div>
-              <label for="custPhone">Customer Phone</label>
-              <input id="custPhone" name="customer_phone" required />
-            </div>
-          </div>
-          <div class="form-row" style="margin-top:8px">
-            <div>
-              <label for="dealerName">Dealer Name</label>
-              <input id="dealerName" name="dealer_name" required />
-            </div>
-            <div>
-              <label for="dealerPhone">Dealer Phone</label>
-              <input id="dealerPhone" name="dealer_phone" required />
-            </div>
-          </div>
+  <section id="portfolio">
+    <h2>Our Projects</h2>
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/280x180" alt="Project 1">
+      <p>Project One</p>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/280x180" alt="Project 2">
+      <p>Project Two</p>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/280x180" alt="Project 3">
+      <p>Project Three</p>
+    </div>
+  </section>
 
-          <div style="margin-top:8px">
-            <label for="model">Mobile Model</label>
-            <input id="model" name="mobile_model" />
-          </div>
-
-          <div style="margin-top:8px">
-            <label for="imei">IMEI / Serial</label>
-            <input id="imei" name="imei" />
-          </div>
-
-          <div style="margin-top:8px">
-            <label for="notes">Notes</label>
-            <textarea id="notes" name="notes" rows="3"></textarea>
-          </div>
-
-          <div style="margin-top:10px;display:flex;gap:8px;justify-content:flex-end">
-            <button type="submit" class="btn">Submit to Google Sheet</button>
-          </div>
-          <p id="mobileStatus" style="font-size:13px;color:#666;margin-top:8px"></p>
-        </form>
-      </div>
-    </section>
-
-    <!-- Apply Loan Section (detailed) -->
-    <section id="apply-loan" style="margin-top:20px">
-      <h3>Apply Loan — Detailed Form</h3>
-      <div class="card">
-        <form id="loanForm">
-          <div class="form-row">
-            <div>
-              <label for="lname">Full Name</label>
-              <input id="lname" name="name" required />
-            </div>
-            <div>
-              <label for="lage">Age</label>
-              <input id="lage" name="age" type="number" min="18" />
-            </div>
-          </div>
-
-          <div class="form-row" style="margin-top:8px">
-            <div>
-              <label for="lemail">Email</label>
-              <input id="lemail" name="email" type="email" />
-            </div>
-            <div>
-              <label for="lphone">Phone</label>
-              <input id="lphone" name="phone" required />
-            </div>
-          </div>
-
-          <div style="margin-top:8px">
-            <label for="loanType">Loan Type</label>
-            <select id="loanType" name="loan_type">
-              <option>Personal Loan</option>
-              <option>Self Loan</option>
-              <option>Car Loan</option>
-              <option>Home Loan</option>
-            </select>
-          </div>
-
-          <div style="margin-top:8px">
-            <label for="amount">Loan Amount (₹)</label>
-            <input id="amount" name="amount" type="number" />
-          </div>
-
-          <div style="margin-top:8px;display:flex;gap:8px;justify-content:flex-end">
-            <button type="submit" class="btn">Submit Application</button>
-          </div>
-
-          <p id="loanStatus" style="font-size:13px;color:#666;margin-top:8px"></p>
-        </form>
-      </div>
-    </section>
-
-    <!-- About / Mission / Vision -->
-    <section id="aboutSections" style="margin-top:20px">
-      <div class="card">
-        <h3 id="mission">Mission</h3>
-        <p>Hamaari mission: Financial inclusion aur responsible lending.</p>
-        <h3 id="vision">Vision</h3>
-        <p>Hamaari vision: Har ghar tak financial services.</p>
-      </div>
-    </section>
-
-  </main>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <label>Your Name</label>
+      <input type="text" placeholder="Enter your name" required>
+      <label>Email</label>
+      <input type="email" placeholder="Enter your email" required>
+      <label>Message</label>
+      <textarea rows="5" placeholder="Write your message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
 
   <footer>
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
-      <div>
-        <strong>NAMA FINANCE BANK</strong>
-        <div style="font-size:13px;margin-top:6px">Follow us:</div>
-        <div class="socials" style="margin-top:6px">
-          <a href="#">Facebook: /namafinance</a> |
-          <a href="#">Instagram: @namafinance</a> |
-          <a href="#">Twitter: @namafinance</a>
-        </div>
-      </div>
-      <div style="font-size:13px;color:#cfe3ff">Made for Jagtar Singh — GitHub: jagtarsinghnama</div>
-    </div>
+    <p>&copy; 2025 Namma Company | All Rights Reserved</p>
+    <p>
+      <a href="#">Facebook</a> |
+      <a href="#">LinkedIn</a> |
+      <a href="#">Twitter</a>
+    </p>
   </footer>
 
-  <script>
-    // --- Dropdown behaviour ---
-    document.querySelectorAll('nav .dropdown').forEach(function(dd){
-      dd.addEventListener('mouseenter',()=>{ let c = dd.querySelector('.dropdown-content'); if(c) c.style.display='block'; });
-      dd.addEventListener('mouseleave',()=>{ let c = dd.querySelector('.dropdown-content'); if(c) c.style.display='none'; });
-    });
-
-    function scrollToSection(id){ location.hash = id }
-
-    // --- Replace this with your Google Apps Script Web App URL ---
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
-
-    // Helper to post to Google Script
-    async function postToSheet(data){
-      try{
-        const res = await fetch(GOOGLE_SCRIPT_URL, {
-          method: 'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)
-        });
-        return await res.json();
-      }catch(e){ console.error(e); return {status:'error', message:e.message} }
-    }
-
-    // Quick apply
-    document.getElementById('quickApplyForm').addEventListener('submit', async function(e){
-      e.preventDefault();
-      const form = new FormData(e.target); let obj = Object.fromEntries(form.entries()); obj._form = 'quickApply';
-      document.getElementById('quickStatus').innerText='Sending...';
-      const r = await postToSheet(obj);
-      document.getElementById('quickStatus').innerText = r.status==='success'? 'Sent ✅' : ('Error: '+(r.message||'Try later'));
-      e.target.reset();
-    });
-
-    // Mobile insurance
-    document.getElementById('mobileInsuranceForm').addEventListener('submit', async function(e){
-      e.preventDefault();
-      const form = new FormData(e.target); let obj = Object.fromEntries(form.entries()); obj._form='mobileInsurance';
-      document.getElementById('mobileStatus').innerText='Sending...';
-      const r = await postToSheet(obj);
-      document.getElementById('mobileStatus').innerText = r.status==='success'? 'Submitted to sheet ✅' : ('Error: '+(r.message||'Try later'));
-      e.target.reset();
-    });
-
-    // Loan form
-    document.getElementById('loanForm').addEventListener('submit', async function(e){
-      e.preventDefault();
-      const form = new FormData(e.target); let obj = Object.fromEntries(form.entries()); obj._form='loanApplication';
-      document.getElementById('loanStatus').innerText='Sending...';
-      const r = await postToSheet(obj);
-      document.getElementById('loanStatus').innerText = r.status==='success'? 'Application sent ✅' : ('Error: '+(r.message||'Try later'));
-      e.target.reset();
-    });
-
-    // --- Helpful note for deployment ---
-    /*
-      To capture form submissions into Google Sheets you can use a Google Apps Script Web App. Steps (brief):
-      1. Create a new Google Sheet. From Extensions → Apps Script paste this sample script.
-
-      SAMPLE Apps Script:
-
-      function doPost(e){
-        try{
-          var ss = SpreadsheetApp.openById('YOUR_SHEET_ID');
-          var sh = ss.getSheetByName('Sheet1');
-          var data = JSON.parse(e.postData.contents);
-          if(sh.getLastRow()===0){ sh.appendRow(Object.keys(data)); }
-          var row = []; for(var k in data) row.push(data[k]); sh.appendRow(row);
-          return ContentService.createTextOutput(JSON.stringify({status:'success'})).setMimeType(ContentService.MimeType.JSON);
-        }catch(err){
-          return ContentService.createTextOutput(JSON.stringify({status:'error', message:err.message})).setMimeType(ContentService.MimeType.JSON);
-        }
-      }
-
-      2. Deploy → New deployment → Web app → Execute as 'me', access 'Anyone'. Copy URL.
-      3. Replace GOOGLE_SCRIPT_URL above with that URL.
-    */
-  </script>
 </body>
 </html>
