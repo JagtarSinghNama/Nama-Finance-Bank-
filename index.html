@@ -5,251 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Company Bank</title>
   <style>
-    /* Reset and base */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      display:flex;flex-direction:column;min-height:100vh;
+      font-family:Arial, sans-serif;line-height:1.6;color:#333;
     }
+    header{background:#0d6efd;color:#fff;padding:20px;text-align:center;}
+    header h1{font-size:2.5rem;}
+    header p{font-size:1.2rem;}
+    nav{background:#084298;padding:10px;text-align:center;}
+    nav a{color:#fff;text-decoration:none;margin:0 15px;font-weight:bold;cursor:pointer;}
+    nav a:hover{text-decoration:underline;}
 
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
+    main{flex:1 0 auto;max-width:1000px;margin:20px auto;width:100%;padding:20px;}
+    section{padding:40px 20px;display:none;text-align:left;}
+    section.active{display:block;}
+    #about{background:#f8f9fa;}
+    #services,#emi,#contact{background:#fff;}
 
-    body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
+    .service-box{
+      display:inline-block;width:250px;margin:15px;padding:20px;
+      background:#f8f9fa;border-radius:10px;box-shadow:0 4px 6px rgba(0,0,0,0.1);
+      text-align:center;vertical-align:top;
     }
+    .portfolio-item{
+      display:inline-block;width:280px;margin:15px;border-radius:10px;overflow:hidden;
+      box-shadow:0 4px 6px rgba(0,0,0,0.1);vertical-align:top;text-align:center;
+    }
+    .portfolio-item img{width:100%;display:block;}
 
-    header {
-      background: #0d6efd;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-      flex-shrink: 0;
+    form{max-width:500px;margin:auto;}
+    label{display:block;margin-top:12px;font-weight:bold;}
+    input,textarea{
+      width:100%;padding:12px;margin:8px 0 16px;border:1px solid #ccc;border-radius:6px;
+      font-size:1rem;font-family:inherit;
     }
-    header h1 {
-      font-size: 2.5rem;
+    button{
+      background:#0d6efd;color:#fff;padding:12px 20px;border:none;border-radius:6px;
+      cursor:pointer;font-size:1rem;font-weight:bold;transition:0.3s;
     }
-    header p {
-      font-size: 1.2rem;
-    }
-    nav {
-      background: #084298;
-      padding: 10px;
-      text-align: center;
-      flex-shrink: 0;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    /* Dropdown */
-    .dropdown {
-      display: inline-block;
-      position: relative;
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: #084298;
-      min-width: 180px;
-      z-index: 999;
-      text-align: left;
-      border-radius: 0 0 6px 6px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    }
-    .dropdown:hover > .dropdown-content {
-      display: block;
-    }
-    .dropdown-item {
-      position: relative;
-    }
-    .dropdown-item > a {
-      display: block;
-      color: #fff;
-      padding: 10px 15px;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .dropdown-item > a:hover {
-      background-color: #06357a;
-    }
-    /* Submenu */
-    .submenu {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 100%;
-      background-color: #0d6efd;
-      min-width: 180px;
-      border-radius: 0 6px 6px 0;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-      z-index: 1000;
-    }
-    .dropdown-item:hover > .submenu {
-      display: block;
-    }
-    .submenu a {
-      padding: 10px 15px;
-      display: block;
-      color: #fff;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .submenu a:hover {
-      background-color: #052b69;
-    }
+    button:hover{background:#084298;}
 
-    /* Main content area */
-    main {
-      flex: 1 0 auto; /* grow and shrink, min 0 */
-      max-width: 1000px;
-      margin: 20px auto;
-      width: 100%;
-      padding: 20px;
-      box-sizing: border-box;
+    footer{
+      background:#0d6efd;color:#fff;text-align:center;padding:20px;
+      font-size:0.9rem;margin-top:30px;
     }
-    /* Sections */
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-      text-align: center;
-      display: none; /* hide all by default */
-      text-align: left;
-    }
-    section.active {
-      display: block;
-    }
-    #about {
-      background: #f8f9fa;
-    }
-    #services {
-      background: #fff;
-    }
-    .service-box {
-      display: inline-block;
-      width: 250px;
-      margin: 15px;
-      padding: 20px;
-      background: #f8f9fa;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      vertical-align: top;
-      text-align: center;
-    }
-    #portfolio {
-      background: #f8f9fa;
-      text-align: center;
-    }
-    .portfolio-item {
-      display: inline-block;
-      width: 280px;
-      margin: 15px;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      vertical-align: top;
-    }
-    .portfolio-item img {
-      width: 100%;
-      display: block;
-    }
-    #emi {
-      background: #fff;
-      text-align: center;
-    }
-    #contact {
-      background: #fff;
-      text-align: left;
-    }
-    form {
-      max-width: 500px;
-      margin: auto;
-    }
-    label {
-      display: block;
-      margin-top: 12px;
-      font-weight: bold;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin: 8px 0 16px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-      font-family: inherit;
-    }
-    button {
-      background: #0d6efd;
-      color: #fff;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-    button:hover {
-      background: #084298;
-    }
-    footer {
-      background: #0d6efd;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      flex-shrink: 0; /* don't shrink */
-      font-size: 0.9rem;
-      margin-top: 30px;
-    }
-    footer a {
-      color: #fff;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-    @media (max-width: 768px) {
-      .service-box, .portfolio-item {
-        width: 90%;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      nav {
-        text-align: left;
-      }
-      nav a, .dropdown > a {
-        display: block;
-        margin: 8px 0;
-      }
-      .dropdown-content, .submenu {
-        position: static;
-        min-width: 100%;
-        box-shadow: none;
-        border-radius: 0;
-      }
-      .submenu {
-        padding-left: 20px;
-        background-color: #0d6efd;
-      }
+    footer a{color:#fff;margin:0 10px;text-decoration:none;}
+    footer a:hover{text-decoration:underline;}
+
+    @media(max-width:768px){
+      .service-box,.portfolio-item{width:90%;display:block;margin:auto;}
+      nav{text-align:left;}
+      nav a{display:block;margin:8px 0;}
     }
   </style>
 </head>
@@ -260,81 +67,25 @@
   </header>
 
   <nav>
-    <div class="dropdown">
-      <a href="#about" class="nav-link">Home</a>
-      <div class="dropdown-content">
-        <div class="dropdown-item">
-          <a href="#about" class="nav-link">Company Overview</a>
-        </div>
-        <div class="dropdown-item">
-          <a href="#portfolio" class="nav-link">Portfolio</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <a href="#services" class="nav-link">Services</a>
-      <div class="dropdown-content">
-        <div class="dropdown-item">
-          <a href="#">Insurance &#9656;</a>
-          <div class="submenu">
-            <a href="#" onclick="alert('Life Insurance details coming soon!')">Life Insurance</a>
-            <a href="#" onclick="alert('Health Insurance details coming soon!')">Health Insurance</a>
-            <a href="#" onclick="alert('Travel Insurance details coming soon!')">Travel Insurance</a>
-          </div>
-        </div>
-        <div class="dropdown-item">
-          <a href="#">Loan &#9656;</a>
-          <div class="submenu">
-            <a href="#" onclick="alert('Home Loan details coming soon!')">Home Loan</a>
-            <a href="#" onclick="alert('Car Loan details coming soon!')">Car Loan</a>
-            <a href="#" onclick="alert('Personal Loan details coming soon!')">Personal Loan</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <a href="#about" class="nav-link">Home</a>
+    <a href="#services" class="nav-link">Services</a>
+    <a href="#portfolio" class="nav-link">Portfolio</a>
     <a href="#emi" class="nav-link">EMI</a>
-
-    <div class="dropdown">
-      <a href="#about" class="nav-link">About</a>
-      <div class="dropdown-content">
-        <div class="dropdown-item">
-          <a href="#mission" class="nav-link">Mission</a>
-        </div>
-        <div class="dropdown-item">
-          <a href="#vision" class="nav-link">Vision</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <a href="#contact" class="nav-link">Contact</a>
-      <div class="dropdown-content">
-        <div class="dropdown-item">
-          <a href="#contact-email" class="nav-link">Email</a>
-        </div>
-        <div class="dropdown-item">
-          <a href="#contact-phone" class="nav-link">Phone</a>
-        </div>
-        <div class="dropdown-item">
-          <a href="#contact-location" class="nav-link">Location</a>
-        </div>
-      </div>
-    </div>
+    <a href="#contact" class="nav-link">Contact</a>
   </nav>
 
   <main>
-    <!-- Sections -->
+    <!-- About -->
     <section id="about" class="active">
       <h2>About Us</h2>
-      <p> We are a professional company delivering world-class solutions in technology, finance, and digital growth. </p>
-      <h3 id="mission">Our Mission</h3>
-      <p> To provide innovative and reliable banking solutions that empower individuals and businesses to achieve financial success. </p>
-      <h3 id="vision">Our Vision</h3>
-      <p> To be the most trusted and forward-thinking financial institution, transforming lives through innovation and service excellence. </p>
+      <p>We are a professional company delivering world-class solutions in technology, finance, and digital growth.</p>
+      <h3>Our Mission</h3>
+      <p>To provide innovative and reliable banking solutions that empower individuals and businesses to achieve financial success.</p>
+      <h3>Our Vision</h3>
+      <p>To be the most trusted and forward-thinking financial institution, transforming lives through innovation and service excellence.</p>
     </section>
 
+    <!-- Services -->
     <section id="services">
       <h2>Our Services</h2>
       <div class="service-box">
@@ -351,40 +102,53 @@
       </div>
     </section>
 
+    <!-- Portfolio -->
     <section id="portfolio">
       <h2>Our Projects</h2>
       <div class="portfolio-item">
-        <img src="https://via.placeholder.com/280x180" alt="Project 1" />
+        <img src="https://via.placeholder.com/280x180" alt="Project 1">
         <p>Project One</p>
       </div>
       <div class="portfolio-item">
-        <img src="https://via.placeholder.com/280x180" alt="Project 2" />
+        <img src="https://via.placeholder.com/280x180" alt="Project 2">
         <p>Project Two</p>
       </div>
       <div class="portfolio-item">
-        <img src="https://via.placeholder.com/280x180" alt="Project 3" />
+        <img src="https://via.placeholder.com/280x180" alt="Project 3">
         <p>Project Three</p>
       </div>
     </section>
 
+    <!-- EMI Calculator -->
     <section id="emi">
       <h2>EMI Calculator</h2>
-      <p>This section is under construction.</p>
+      <form id="emiForm">
+        <label>Loan Amount (₹)</label>
+        <input type="number" id="loanAmount" placeholder="Enter loan amount" required>
+
+        <label>Annual Interest Rate (%)</label>
+        <input type="number" id="interestRate" placeholder="Enter interest rate" required>
+
+        <label>Loan Tenure (Years)</label>
+        <input type="number" id="loanTenure" placeholder="Enter tenure in years" required>
+
+        <button type="submit">Calculate EMI</button>
+      </form>
+
+      <div id="emiResult" style="margin-top:20px;font-weight:bold;font-size:1.2rem;"></div>
     </section>
 
+    <!-- Contact -->
     <section id="contact">
       <h2>Contact Us</h2>
-      <h3 id="contact-email">Email</h3>
-      <p>contact@companybank.com</p>
-      <h3 id="contact-phone">Phone</h3>
-      <p>+1 234 567 8900</p>
-      <h3 id="contact-location">Location</h3>
-      <p>123 Finance St, Business City, Country</p>
+      <p><strong>Email:</strong> contact@companybank.com</p>
+      <p><strong>Phone:</strong> +1 234 567 8900</p>
+      <p><strong>Location:</strong> 123 Finance St, Business City, Country</p>
       <form>
         <label>Your Name</label>
-        <input type="text" placeholder="Enter your name" required />
+        <input type="text" placeholder="Enter your name" required>
         <label>Email</label>
-        <input type="email" placeholder="Enter your email" required />
+        <input type="email" placeholder="Enter your email" required>
         <label>Message</label>
         <textarea rows="5" placeholder="Write your message" required></textarea>
         <button type="submit">Send Message</button>
@@ -393,45 +157,39 @@
   </main>
 
   <footer>
-    <p>&copy; Company | All Rights Reserved</p>
-    <p>
-      <a href="#">Facebook</a> | <a href="#">LinkedIn</a> | <a href="#">Twitter</a>
-    </p>
+    <p>&copy; 2025 Company Bank | All Rights Reserved</p>
+    <p><a href="#">Facebook</a> | <a href="#">LinkedIn</a> | <a href="#">Twitter</a></p>
   </footer>
 
   <script>
-    // JavaScript to handle showing/hiding sections based on nav clicks
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', (e) => {
+    // Navigation
+    document.querySelectorAll('.nav-link').forEach(link=>{
+      link.addEventListener('click',e=>{
         e.preventDefault();
-        const targetId = link.getAttribute('href').substring(1);
-        
-        const sections = document.querySelectorAll('section');
-        let targetSection = document.getElementById(targetId);
-        
-        if (!targetSection) {
-          if (targetId === 'mission' || targetId === 'vision') {
-            sections.forEach(s => s.classList.remove('active'));
-            document.getElementById('about').classList.add('active');
-            const heading = document.getElementById(targetId);
-            heading.scrollIntoView({behavior: 'smooth', block: 'start'});
-          } else if (targetId.startsWith('contact-')) {
-            sections.forEach(s => s.classList.remove('active'));
-            document.getElementById('contact').classList.add('active');
-            const heading = document.getElementById(targetId);
-            heading.scrollIntoView({behavior: 'smooth', block: 'start'});
-          } else {
-            sections.forEach(s => s.classList.remove('active'));
-            document.getElementById('about').classList.add('active');
-          }
-          return;
-        }
-        
-        sections.forEach(s => s.classList.remove('active'));
-        targetSection.classList.add('active');
-        
-        window.scrollTo({top: 0, behavior: 'smooth'});
+        let targetId=link.getAttribute('href').substring(1);
+        document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+        document.getElementById(targetId).classList.add('active');
+        window.scrollTo({top:0,behavior:'smooth'});
       });
+    });
+
+    // EMI Calculator
+    document.getElementById("emiForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let P = parseFloat(document.getElementById("loanAmount").value);
+      let annualRate = parseFloat(document.getElementById("interestRate").value);
+      let years = parseFloat(document.getElementById("loanTenure").value);
+      let R = annualRate / 12 / 100;
+      let N = years * 12;
+      let EMI = (P * R * Math.pow(1 + R, N)) / (Math.pow(1 + R, N) - 1);
+
+      if(isFinite(EMI)){
+        document.getElementById("emiResult").innerHTML =
+          `📌 Monthly EMI = <span style="color:green">₹${EMI.toFixed(2)}</span>`;
+      } else {
+        document.getElementById("emiResult").innerHTML =
+          `<span style="color:red">Please enter valid numbers</span>`;
+      }
     });
   </script>
 </body>
