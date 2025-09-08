@@ -53,10 +53,16 @@
     footer a{color:#fff;margin:0 10px;text-decoration:none;}
     footer a:hover{text-decoration:underline;}
 
+    iframe{
+      width:100%;height:600px;border:none;border-radius:10px;
+      box-shadow:0 4px 6px rgba(0,0,0,0.1);
+    }
+
     @media(max-width:768px){
       .service-box,.portfolio-item{width:90%;display:block;margin:auto;}
       nav{text-align:left;}
       nav a{display:block;margin:8px 0;}
+      iframe{height:400px;}
     }
   </style>
 </head>
@@ -72,8 +78,6 @@
     <a href="#insurance" class="nav-link">Mobile Screen Insurance</a>
     <a href="#emi" class="nav-link">EMI</a>
     <a href="#contact" class="nav-link">Contact</a>
-    <!-- External link separate rakha hai -->
-    <a href="https://insurancefrom.onrender.com" target="_blank">Visit Insurance Site</a>
   </nav>
 
   <main>
@@ -104,17 +108,10 @@
       </div>
     </section>
 
-    <!-- Insurance -->
+    <!-- Insurance with iframe -->
     <section id="insurance">
       <h2>Mobile Screen Insurance</h2>
-      <div class="portfolio-item">
-        <img src="https://via.placeholder.com/280x180" alt="Insurance Project 1">
-        <p>Insurance Project One</p>
-      </div>
-      <div class="portfolio-item">
-        <img src="https://via.placeholder.com/280x180" alt="Insurance Project 2">
-        <p>Insurance Project Two</p>
-      </div>
+      <iframe src="https://insurancefrom.onrender.com"></iframe>
     </section>
 
     <!-- EMI Calculator -->
