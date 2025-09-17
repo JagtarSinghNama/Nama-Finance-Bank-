@@ -33,10 +33,13 @@
       box-shadow:0 4px 6px rgba(0,0,0,0.1);vertical-align:top;text-align:center;
     }
     .portfolio-item img{width:100%;display:block;}
-}
-    .iframe{
-      width:100%;height:1200px;border:none;border-radius:10px;
+
+    iframe{
+      width:100%;
+      border:none;
+      border-radius:10px;
       box-shadow:0 4px 6px rgba(0,0,0,0.1);
+      overflow:hidden;
     }
     label{display:block;margin-top:12px;font-weight:bold;}
     input,textarea{
@@ -56,13 +59,10 @@
     footer a{color:#fff;margin:0 10px;text-decoration:none;}
     footer a:hover{text-decoration:underline;}
 
-    
-
     @media(max-width:768px){
       .service-box,.portfolio-item{width:90%;display:block;margin:auto;}
       nav{text-align:left;}
       nav a{display:block;margin:8px 0;}
-      iframe{height:400px;}
     }
   </style>
 </head>
@@ -111,7 +111,7 @@
     <!-- Insurance with iframe -->
     <section id="insurance">
       <h2>Mobile Screen Insurance</h2>
-      <iframe src="https://mobileinsuranceform.onrender.com"></iframe>
+      <iframe id="insuranceFrame" src="https://mobileinsuranceform.onrender.com"></iframe>
     </section>
 
     <!-- EMI Calculator -->
@@ -184,6 +184,18 @@
       } else {
         document.getElementById("emiResult").innerHTML =
           `<span style="color:red">Please enter valid numbers</span>`;
+      }
+    });
+
+    // Auto resize iframe
+    const iframe = document.getElementById("insuranceFrame");
+    iframe.addEventListener("load", () => {
+      try {
+        const doc = iframe.contentWindow.document;
+        iframe.style.height = doc.body.scrollHeight + "px";
+      } catch (e) {
+        // अगर external domain है और height access ना हो पाए तो fallback
+        iframe.style.height = "800px";
       }
     });
   </script>
